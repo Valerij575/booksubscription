@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\BookSubscription.Infrastructure\BookSubscription.Infrastructure.csproj" />
+    <ProjectReference Include="..\BookSubscription.Persistance\BookSubscription.Persistance.csproj" />
+  </ItemGroup>
+
+
+</Project>
