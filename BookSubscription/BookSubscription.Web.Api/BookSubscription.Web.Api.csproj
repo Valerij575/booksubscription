@@ -4,6 +4,15 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
 
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DocumentationFile>C:\Disk D\ProjectAngular\BookSubscription\booksubscription\BookSubscription\BookSubscription.Web.Api\BookSubscription.Web.Api.xml</DocumentationFile>
+    <NoWarn>1701;1702;1591</NoWarn>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="5.4.1" />
+  </ItemGroup>
+
   <ItemGroup>
     <ProjectReference Include="..\BookSubscription.Infrastructure\BookSubscription.Infrastructure.csproj" />
     <ProjectReference Include="..\BookSubscription.Persistance\BookSubscription.Persistance.csproj" />

@@ -8,7 +8,7 @@ using Microsoft.Extensions.Logging;
 namespace BookSubscription.Web.Api.Controllers
 {
     [ApiController]
-    [Route("[controller]")]
+    [Route("api/[controller]")]
     public class WeatherForecastController : ControllerBase
     {
         private static readonly string[] Summaries = new[]
@@ -23,7 +23,16 @@ namespace BookSubscription.Web.Api.Controllers
             _logger = logger;
         }
 
+        /// <summary>
+        /// Get the list of all Weather
+        /// </summary>
+        /// <returns>The list of Weather</returns>
+        /// <response code="200">Return the list of weather</response>
+        /// <response code="404">Not found</response>
+        // Get: api/weather
         [HttpGet]
+        [ProducesResponseType(200)]
+        [ProducesResponseType(404)]
         public IEnumerable<WeatherForecast> Get()
         {
             var rng = new Random();

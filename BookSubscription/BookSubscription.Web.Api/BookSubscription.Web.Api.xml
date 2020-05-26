@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>BookSubscription.Web.Api</name>
+    </assembly>
+    <members>
+        <member name="M:BookSubscription.Web.Api.Controllers.WeatherForecastController.Get">
+            <summary>
+            Get the list of all Weather
+            </summary>
+            <returns>The list of Weather</returns>
+        </member>
+        <member name="M:BookSubscription.Web.Api.Extensions.ServiceCollectionDIEtensions.InjectApplicationServices(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            Inject services.
+            </summary>
+            <param name="services"></param>
+        </member>
+        <member name="M:BookSubscription.Web.Api.Extensions.ServiceCollectionGeneralExtensions.AddSwaggerConfiguration(Microsoft.Extensions.DependencyInjection.IServiceCollection,Microsoft.Extensions.Configuration.IConfiguration)">
+            <summary>
+            Add swagger configuration
+            </summary>
+            <param name="services"></param>
+            <param name="configuration"></param>
+        </member>
+    </members>
+</doc>
