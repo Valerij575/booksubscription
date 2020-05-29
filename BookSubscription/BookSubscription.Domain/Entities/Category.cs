@@ -32,6 +32,6 @@ namespace BookSubscription.Domain.Entities
         [Required]
         public string Description { get; set; }
 
-        public ICollection<BookCategory> BookCategories { get; private set; }
+        public ICollection<BookCategory> BookCategories { get; set; }
     }
 }

@@ -6,6 +6,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\BookSubscription.Application\BookSubscription.Application.csproj" />
+    <ProjectReference Include="..\BookSubscription.Persistance\BookSubscription.Persistance.csproj" />
   </ItemGroup>
 
 </Project>

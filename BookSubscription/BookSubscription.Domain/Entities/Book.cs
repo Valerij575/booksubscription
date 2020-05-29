@@ -38,6 +38,6 @@ namespace BookSubscription.Domain.Entities
         [Required]
         public decimal Price { get; set; }
 
-        public ICollection<BookCategory> BookCategories { get; private set; }
+        public ICollection<BookCategory> BookCategories { get; set; }
     }
 }
