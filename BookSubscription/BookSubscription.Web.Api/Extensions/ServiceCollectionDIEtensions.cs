@@ -1,4 +1,6 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+﻿using BookSubscription.Application.Interfaces;
+using BookSubscription.Infrastructure.Services;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace BookSubscription.Web.Api.Extensions
 {
@@ -10,7 +12,8 @@ namespace BookSubscription.Web.Api.Extensions
         /// <param name="services"></param>
         public static void InjectApplicationServices(this IServiceCollection services)
         {
-
+            services.AddTransient<IBookService, BookService>();
+            services.AddTransient<ICategoryService, CategoryService>();
         }
     }
 }

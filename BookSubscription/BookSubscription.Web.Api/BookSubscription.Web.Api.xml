@@ -4,11 +4,37 @@
         <name>BookSubscription.Web.Api</name>
     </assembly>
     <members>
-        <member name="M:BookSubscription.Web.Api.Controllers.WeatherForecastController.Get">
+        <member name="M:BookSubscription.Web.Api.Controllers.BooksController.GetAll">
             <summary>
-            Get the list of all Weather
+            Get the list of all books
             </summary>
             <returns>The list of Weather</returns>
+            <response code="200">Return the list of books</response>
+            <response code="404">Not found</response>
+        </member>
+        <member name="M:BookSubscription.Web.Api.Controllers.BooksController.Get(System.Guid)">
+            <summary>
+            Get the book
+            </summary>
+            <returns>The book</returns>
+            <response code="200">Return the book</response>
+            <response code="404">Not found</response>
+        </member>
+        <member name="M:BookSubscription.Web.Api.Controllers.CategoryController.GetAll">
+            <summary>
+            Get the list of all category
+            </summary>
+            <returns>The list of category</returns>
+            <response code="200">Return the list of category</response>
+            <response code="404">Not found</response>
+        </member>
+        <member name="M:BookSubscription.Web.Api.Controllers.CategoryController.Get(System.Guid)">
+            <summary>
+            Get the category
+            </summary>
+            <returns>The category</returns>
+            <response code="200">Return the category</response>
+            <response code="404">Not found</response>
         </member>
         <member name="M:BookSubscription.Web.Api.Extensions.ServiceCollectionDIEtensions.InjectApplicationServices(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
             <summary>
