@@ -17,7 +17,6 @@ namespace BookSubscription.Persistance.Configuration
                 .HasMaxLength(255);
 
             builder.Property(e => e.Description)
-                .IsRequired()
                 .HasColumnType("ntext");
         }
     }

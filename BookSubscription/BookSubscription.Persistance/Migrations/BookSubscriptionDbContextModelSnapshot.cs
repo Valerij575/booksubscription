@@ -26,45 +26,25 @@ namespace BookSubscription.Persistance.Migrations
                         .HasColumnName("BookId")
                         .HasColumnType("uniqueidentifier");
 
+                    b.Property<Guid>("CategoryId")
+                        .HasColumnType("uniqueidentifier");
+
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasColumnType("nvarchar(255)")
-                        .HasMaxLength(255);
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<decimal>("Price")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("money")
-                        .HasDefaultValueSql("((0))");
+                        .HasColumnType("decimal(18,2)");
 
                     b.Property<string>("Text")
                         .IsRequired()
-                        .HasColumnType("ntext");
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
-                    b.ToTable("Book");
-                });
-
-            modelBuilder.Entity("BookSubscription.Domain.Entities.BookCategory", b =>
-                {
-                    b.Property<Guid>("BookId")
-                        .HasColumnName("BookId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<Guid>("CategoryId")
-                        .HasColumnName("CategoryId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<Guid>("Id")
-                        .HasColumnName("Id")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.HasKey("BookId", "CategoryId")
-                        .HasAnnotation("SqlServer:Clustered", false);
-
                     b.HasIndex("CategoryId");
 
-                    b.ToTable("BookCategory");
+                    b.ToTable("Book");
                 });
 
             modelBuilder.Entity("BookSubscription.Domain.Entities.Category", b =>
@@ -75,31 +55,23 @@ namespace BookSubscription.Persistance.Migrations
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("Description")
-                        .IsRequired()
-                        .HasColumnType("ntext");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Title")
                         .IsRequired()
-                        .HasColumnType("nvarchar(255)")
-                        .HasMaxLength(255);
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
                     b.ToTable("Category");
                 });
 
-            modelBuilder.Entity("BookSubscription.Domain.Entities.BookCategory", b =>
+            modelBuilder.Entity("BookSubscription.Domain.Entities.Book", b =>
                 {
-                    b.HasOne("BookSubscription.Domain.Entities.Book", "Book")
-                        .WithMany("BookCategories")
-                        .HasForeignKey("BookId")
-                        .HasConstraintName("FK_BookCategories_Books")
-                        .IsRequired();
-
                     b.HasOne("BookSubscription.Domain.Entities.Category", "Category")
-                        .WithMany("BookCategories")
+                        .WithMany("Books")
                         .HasForeignKey("CategoryId")
-                        .HasConstraintName("FK_BookCategories_Categories")
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
 #pragma warning restore 612, 618
