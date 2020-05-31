@@ -8,17 +8,17 @@ namespace BookSubscription.Domain.Entities
     [Table("Book")]
     public class Book : IEntity
     {
-        public Book()
-        {
-            BookCategories = new HashSet<BookCategory>();
-        }
-
         /// <summary>
         /// Gets or sets a book id.
         /// </summary>
         [Key]
         [Column("BookId")]
         public Guid Id { get ; set; }
+
+        /// <summary>
+        /// Gets or sets a category id.
+        /// </summary>
+        public Guid CategoryId { get; set; }
 
         /// <summary>
         /// Gets or sets book name.
@@ -38,6 +38,6 @@ namespace BookSubscription.Domain.Entities
         [Required]
         public decimal Price { get; set; }
 
-        public ICollection<BookCategory> BookCategories { get; set; }
+        public Category Category { get; set; }
     }
 }

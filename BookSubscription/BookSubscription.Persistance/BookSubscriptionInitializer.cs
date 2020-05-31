@@ -20,14 +20,16 @@ namespace BookSubscription.Persistance
         {
             context.Database.EnsureCreated();
 
-            if (!context.Books.Any())
-            {
-                SeedBooks(context);
-            }
             if (!context.Categories.Any())
             {
                 SeedCategories(context);
             }
+
+            if (!context.Books.Any())
+            {
+                SeedBooks(context);
+            }
+            
 
             
         }
@@ -44,10 +46,8 @@ namespace BookSubscription.Persistance
                                 Collins and Lapierre examine the decline of the Raj and the roles enacted 
                                 by the principal players in the drama.",
                     Price = 22.95M,
-                    BookCategories = new[]
-                    {
-                        new BookCategory{CategoryId = Guid.Parse("73A806AC-45CA-4361-A001-B14A7AA79891")}
-                    }
+                    Category = Categories[1]
+
                 });
             Books.Add(2,
                 new Book
@@ -58,10 +58,7 @@ namespace BookSubscription.Persistance
                                 to tell the real story of what goes on inside the royal residences through the eyes 
                                 and words of royal staff past and present.",
                     Price = 18.60M,
-                    BookCategories = new[]
-                    {
-                        new BookCategory{CategoryId = Guid.Parse("73A806AC-45CA-4361-A001-B14A7AA79891")}
-                    }
+                    Category = Categories[1]
                 });
             Books.Add(3,
                 new Book
@@ -71,10 +68,7 @@ namespace BookSubscription.Persistance
                     Text = @"Alive with the mayhem of the present and sparkling with William Dalrymple's irrepressible wit, 
                                 City of Djinns is a fascinating portrait of a city.",
                     Price = 12.00M,
-                    BookCategories = new[]
-                    {
-                        new BookCategory{CategoryId = Guid.Parse("73A806AC-45CA-4361-A001-B14A7AA79891")}
-                    }
+                    Category = Categories[1]
                 });
             Books.Add(4,
                 new Book
@@ -85,10 +79,7 @@ namespace BookSubscription.Persistance
                             tools, and utilities from this thoroughly updated and comprehensive resource, 
                             designed for all Linux distributions.",
                     Price = 57.00M,
-                    BookCategories = new[]
-                    {
-                        new BookCategory{CategoryId = Guid.Parse("FB8C5CFD-1F31-45C7-A843-0ADD07BA5FAF") }
-                    }
+                    Category = Categories[2]
                 });
             Books.Add(5,
                 new Book
@@ -99,10 +90,7 @@ namespace BookSubscription.Persistance
                                 resource for Oracle DBAs has been completely updated to cover the new features of Oracle
                                 Database 11g, the industry standard Web-enabled enterprise database system.",
                     Price = 65.00M,
-                    BookCategories = new[]
-                    {
-                        new BookCategory{CategoryId = Guid.Parse("FB8C5CFD-1F31-45C7-A843-0ADD07BA5FAF") }
-                    }
+                    Category = Categories[2]
                 });
             Books.Add(6,
                 new Book
@@ -111,11 +99,7 @@ namespace BookSubscription.Persistance
                     Name = "Schaum's Outline of Principles of Computer Science",
                     Text = @"",
                     Price = 22.00M,
-                    BookCategories = new[]
-                    {
-                        new BookCategory{CategoryId = Guid.Parse("73A806AC-45CA-4361-A001-B14A7AA79891")},
-                        new BookCategory{CategoryId = Guid.Parse("FB8C5CFD-1F31-45C7-A843-0ADD07BA5FAF") }
-                    }
+                    Category = Categories[2]
                 });
 
             foreach(var book in Books.Values)

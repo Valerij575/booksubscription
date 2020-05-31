@@ -10,7 +10,7 @@ namespace BookSubscription.Domain.Entities
     {
         public Category()
         {
-            BookCategories = new HashSet<BookCategory>();
+            Books = new HashSet<Book>();
         }
 
         /// <summary>
@@ -29,9 +29,8 @@ namespace BookSubscription.Domain.Entities
         /// <summary>
         /// Gets or sets a description category
         /// </summary>
-        [Required]
         public string Description { get; set; }
 
-        public ICollection<BookCategory> BookCategories { get; set; }
+        public ICollection<Book> Books { get; set; }
     }
 }

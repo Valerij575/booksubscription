@@ -32,6 +32,17 @@ namespace BookSubscription.Web.Api
             services.ConfigureAppsettingsOptions(Configuration);
             services.InjectApplicationServices();
             services.AddSwaggerConfiguration(Configuration);
+            services.AddCors(options =>
+            {
+                options.AddPolicy("BookSubscriptionClient", policy =>
+                {
+                    policy
+                        .AllowCredentials()
+                        .WithOrigins("http://localhost:4200")
+                        .AllowAnyHeader()
+                        .AllowAnyMethod();
+                });
+            });
             services.AddControllers();
         }
 
@@ -49,6 +60,8 @@ namespace BookSubscription.Web.Api
             app.UseHttpsRedirection();
 
             app.UseRouting();
+
+            app.UseCors("BookSubscriptionClient");
 
             // 10. Endpoint Routing Middleware (UseEndpoints with MapRazorPages).
             

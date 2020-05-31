@@ -27,6 +27,11 @@ namespace BookSubscription.Persistance.Configuration
                 .IsRequired()
                 .HasColumnType("money")
                 .HasDefaultValueSql("((0))");
+
+            builder.HasOne(d => d.Category)
+                .WithMany(b => b.Books)
+                .HasForeignKey(c => c.CategoryId)
+                .HasConstraintName("FK_Books_Categories");
         }
     }
 }
