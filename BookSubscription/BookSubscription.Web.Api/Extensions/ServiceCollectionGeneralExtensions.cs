@@ -1,5 +1,8 @@
-﻿using BookSubscription.Infrastructure.Configurations;
+﻿using BookSubscription.Domain.Entities;
+using BookSubscription.Infrastructure.Configurations;
 using BookSubscription.Infrastructure.Configurations.Options;
+using BookSubscription.Persistance;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.OpenApi.Models;
@@ -41,6 +44,17 @@ namespace BookSubscription.Web.Api.Extensions
                 var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
                 c.IncludeXmlComments(xmlPath);
             });
+        }
+
+        public static void AddIdentityConfiguration(this IServiceCollection services)
+        {
+            services.AddIdentity<AppUser, IdentityRole>(
+                options =>
+                {
+                    options.Password.RequiredLength = 6;
+                })
+                .AddEntityFrameworkStores<BookSubscriptionDbContext>()
+                .AddDefaultTokenProviders();
         }
     }
 }
