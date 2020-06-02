@@ -14,6 +14,7 @@ namespace BookSubscription.Web.Api.Extensions
         {
             services.AddTransient<IBookService, BookService>();
             services.AddTransient<ICategoryService, CategoryService>();
+            services.AddTransient<IAccountService, AccountService>();
         }
     }
 }

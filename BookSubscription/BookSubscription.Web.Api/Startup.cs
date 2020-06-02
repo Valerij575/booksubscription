@@ -1,4 +1,4 @@
-using BookSubscription.Application.Interfaces;
+using AutoMapper;
 using BookSubscription.Infrastructure.Configurations.Options;
 using BookSubscription.Persistance;
 using BookSubscription.Web.Api.Extensions;
@@ -32,6 +32,8 @@ namespace BookSubscription.Web.Api
             services.ConfigureAppsettingsOptions(Configuration);
             services.InjectApplicationServices();
             services.AddSwaggerConfiguration(Configuration);
+            services.AddIdentityConfiguration();
+
             services.AddCors(options =>
             {
                 options.AddPolicy("BookSubscriptionClient", policy =>
@@ -43,6 +45,8 @@ namespace BookSubscription.Web.Api
                         .AllowAnyMethod();
                 });
             });
+
+            services.AddAutoMapper(typeof(Startup));
             services.AddControllers();
         }
 
