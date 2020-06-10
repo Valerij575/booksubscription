@@ -1,4 +1,4 @@
-# Techical Assessment
+# Technical Assessment
 
 Repository for Book Subscription on ASP.NET and Angular
 
